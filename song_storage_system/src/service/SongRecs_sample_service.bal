@@ -136,6 +136,8 @@ service SongRecs on ep {
     }
     resource function updateRec(grpc:Caller caller, Updatereq value) {
         // Implementation goes here.
+        json js =<json>read(filePath);
+        
 
         // You should return a upResponse
     }

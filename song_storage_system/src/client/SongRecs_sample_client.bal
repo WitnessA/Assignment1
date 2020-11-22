@@ -128,9 +128,23 @@ public function main (string... args) {
         io:println("Details from server: \n",reg2);
     }
     }else if (desc =="3") {
+        io:println("__________________Update Record__________________");
+        Updatereq req;
+        string entry;
+        string entry2;
+        string entry3;
+        io:println("Record to be updated: ");
+        io:println("Enter record code");
+        entry = io:readln(": ");
+        io:println("Enter field to update");
+        entry2 = io:readln(": ");
+        io:println("Enter new Value");
+        entry3 = io:readln(": ");
+
+        req = {recCode: entry,updateField: entry2, newValue: entry3};
         
     }else{
-        
+        io:println("Invalid Selection");
     }
 
 
