@@ -66,6 +66,26 @@ service SongRecs on ep {
                 if (newJsn is error) {
                     io:println("Error occured");
                 }
+            }else if(detmap.hasKey(value.band)){
+                var newJsn = typedesc<json>.constructFrom(detmap[value.band]);
+                if (newJsn is error) {
+                    io:println("Error occured");
+                }
+            }else if(detmap.hasKey(value.song)){
+                var newJsn = typedesc<json>.constructFrom(detmap[value.song]);
+                if (newJsn is error) {
+                    io:println("Error occured");
+                }
+            }else if(detmap.hasKey(value.date)){
+                var newJsn = typedesc<json>.constructFrom(detmap[value.date]);
+                if (newJsn is error) {
+                    io:println("Error occured");
+                }
+            }else if(detmap.hasKey(value.genre)){
+                var newJsn = typedesc<json>.constructFrom(detmap[value.genre]);
+                if (newJsn is error) {
+                    io:println("Error occured");
+                }
             }
             int|error i1 = <int>j.code;
             int i2 = <int> i1;

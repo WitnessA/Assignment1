@@ -90,9 +90,43 @@ public function main (string... args) {
         io:println("5.genre: ");
         io:println("Enter keyword: ");
         srch = io:readln(": ");
+        recRequest req = {};
+        if (srch == "1") {
+            string srch2;
+            io:println("Enter date: ");
+            srch2 = io:readln(": ");
+            req = {date: srch2};
+        }else if(srch == "2"){
+            string srch2;
+            io:println("Enter Artist Name: ");
+            srch2 = io:readln(": ");
+            req = {date: srch2};
+        }else if (srch == "3") {
+            string srch2;
+            io:println("Enter Song title: ");
+            srch2 = io:readln(": ");
+            req = {date: srch2};
+        }else if(srch == "4"){
+            string srch2;
+            io:println("Enter Band Name: ");
+            srch2 = io:readln(": ");
+            req = {date: srch2};
+        }else if (srch == "5") {
+            string srch2;
+            io:println("Enter Genre: ");
+            srch2 = io:readln(": ");
+            req = {date: srch2};
+        }else{
+            io:println("Invalid Field selection");
+        }
 
-        //var reg2 = blockingEp->readRec()
-        
+        var reg2 = blockingEp->readRec(req);
+        if(reg2 is grpc:Error){ 
+        io:print("error"+reg2.reason());
+
+    }else{
+        io:println("Details from server: \n",reg2);
+    }
     }else if (desc =="3") {
         
     }else{
