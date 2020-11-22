@@ -1,0 +1,56 @@
+syntax = "proto3";
+
+service SongRecs{
+
+    rpc readRec(recRequest) returns (readResponse);
+    rpc writeRec(recWriteCom) returns (writeRes);
+    rpc updateRec(Updatereq)returns(upResponse);
+}
+
+message recRequest{
+    string date=1;
+    string artistName=2;
+    string song=3;
+    string band=4;
+    string genre=5;
+}
+
+message recWriteCom{
+    int32 code = 1;
+    string date=2;
+    repeated artist artists=3;
+    string band=4;
+    repeated song songs=5;
+}
+
+message writeRes{
+    string respond=1;
+}
+
+message song{
+    string title=1;
+    string genre=2;
+    string platform=3;
+}
+
+message artist{
+    string name=1;
+    string member=2;
+}
+message readResponse{
+    int32 code = 1;
+    string date=2;
+    repeated artist artists=3;
+    string band=4;
+    repeated song songs =5;
+
+}
+
+message Updatereq{
+    string recCode=1;
+    string updateField=2;
+    string newValue=3;
+}
+message upResponse{
+    string upRes=1;
+}
